@@ -1,0 +1,2 @@
+# mySetupWaybar
+ConfigurationWaybar
