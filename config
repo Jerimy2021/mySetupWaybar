@@ -1,0 +1,102 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "spacing": 10,
+    "modules-left": ["custom/nixos", "hyprland/workspaces", "custom/launcher"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "memory", "battery","pulseaudio","network", "custom/spotify", "tray"],
+
+    "custom/nixos": {
+        "format": " NixOS",
+        "tooltip": false,
+        "on-click": "wofi --show drun"
+    },
+    "hyprland/workspaces": {
+    	"format": "{icon}",
+    	"format-icons": {
+        	"1": "1",
+        	"2": "2",
+        	"3": "3",
+        	"4": "4",
+        	"5": "5",
+        	"6": "6",
+        	"7": "7",
+        	"8": "8",
+        	"9": "9"
+    	},
+    	"active-only": false,
+    	"on-click": "activate",
+    	"persistent_workspaces": {
+        	"1": [],
+        	"2": [],
+        	"3": [],
+        	"4": [],
+        	"5": [],
+        	"6": [],
+        	"7": [],
+        	"8": [],
+        	"9": []
+    		}
+	},
+
+    "clock": {
+        "format": " {:%H:%M}",
+        "tooltip-format": "{:%A, %d de %B de %Y}",
+        "format-alt": "{:%H:%M:%S}"
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": " {used:0.1f}GB",
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi": " ",
+        "format-ethernet": "󰈁",
+        "tooltip": true,
+        "tooltip-format": "Red: {essid}\nIP: {ipaddr}\nVelocidad: {bandwidthDownBits} ↓ / {bandwidthUpBits} ↑",
+        "format-disconnected": " ",
+	"on-click": "nmcli device wifi list"
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": true
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+            "headphones": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol",
+	"tooltip" :true,
+	"tooltip-format": "Volumen:  {volume}%"
+    },
+
+    "custom/spotify": {
+        "exec": "playerctl metadata --format '{{artist}} - {{title}}'",
+        "interval": 2,
+        "format": " {}",
+        "tooltip": false,
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+
+    "tray": {
+        "spacing": 10
+    },
+}
+

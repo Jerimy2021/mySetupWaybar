@@ -1,0 +1,136 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
+                radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: white;
+    border-bottom: 2px solid white;
+    animation: stars 60s linear infinite;
+}
+
+/* Efecto de estrellas */
+@keyframes stars {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 1000px 1000px;
+    }
+}
+
+/* Efecto de neón */
+@keyframes neon {
+    0% {
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+    }
+    100% {
+        text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00;
+    }
+}
+
+/* Módulos generales */
+#clock,
+#cpu,
+#memory,
+#network,
+#battery,
+#pulseaudio,
+#tray,
+#custom-launcher,
+#custom-nixos,
+#custom-spotify {
+    padding: 5px 10px;
+    margin: 5px;
+    background: rgba(30, 30, 30, 0.9);
+    border-radius: 8px;
+    color: white;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto de brillo al pasar el mouse */
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#battery:hover,
+#pulseaudio:hover,
+#tray:hover,
+#custom-launcher:hover,
+#custom-nixos:hover,
+#custom-spotify:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #00ff00;
+}
+
+/* Estilo del lanzador */
+#custom-launcher {
+    background: white;
+    color: white;
+}
+
+/* Estilo personalizado para NixOS */
+#custom-nixos {
+    background: transparent;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+    animation: neon 1.5s infinite alternate;
+}
+
+/* Estilo de la batería */
+#battery.charging, #battery.plugged {
+    color: #00ff00;
+}
+
+#battery.warning:not(.charging) {
+    color: #ffcc00;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff0000;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        color: white;
+    }
+}
+
+/* Estilo de red */
+#network.disconnected {
+    color: #ff0000;
+}
+
+/* Estilo de audio */
+#pulseaudio.muted {
+    color: #ff0000;
+}
+
+/* Estilo de Spotify */
+#custom-spotify {
+    background: rgba(255, 0, 0, 0.9);
+    color: white;
+}
+
+/* Workspaces */
+#workspaces button {
+    background: rgba(30, 30, 30, 0.9);
+    color: white;
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+#workspaces button.active {
+    background: white;
+    color: black;
+}
